@@ -1,23 +1,19 @@
 "use client";
-
-import { useState } from "react";
+import { WeatherResponse } from "@/types";
 import { Button, Input } from "@chakra-ui/react";
 import * as actions from "@/actions";
-import { useActionState  } from "react";
+import { useActionState } from "react";
+import ShowDisplayData from "./show-display-data";
 
-interface weatherShowProps {
-  temp?: number;
-  humidity?: number;
-  description?: string;
-  error?: string;
-  visibility?: number;
-
-}
 export default function LeftSide() {
-    const [formState,action]=useActionState<weatherShowProps>(actions.getWeather,null)
-    
-//   const [weather, setWeather] = useState<weatherShowProps | null>(null);
-  //   const name=formData.get('city')
+  const [formState, action] = useActionState<WeatherResponse|null>(
+    actions.getWeather,
+    null
+  );
+  console.log("FormState:", formState);
+
+  // const weatherDataToday=formState?.data?.days?.[0]
+  const weatherData = formState?.data;
   return (
     <div className="relative w-full h-screen">
       <div className="absolute left-0 top-0 w-[40vh] h-full bg-gray-200 rounded-l-lg p-4">
@@ -31,13 +27,11 @@ export default function LeftSide() {
               width={"auto"}
               borderColor={"black"}
             />
-            <div>
-                {formState?.description}
-            </div>
             <Button type="submit" colorScheme="blue" className="mt-2">
               Click
             </Button>
           </form>
+        <ShowDisplayData weatherData={weatherData}/>
         </div>
       </div>
     </div>
