@@ -19,7 +19,7 @@ export default function ShowDisplayData({ weatherData }: ShowDisplayDataProps) {
       0.01 * (pressure - 1013) +
       0.1 * windSpeed
   );
-
+console.log(rainChance)
   return (
     <div className="flex items-center justify-center">
       <div className="m-5 p-2 bg-green-300 rounded-xl shadow-lg">
