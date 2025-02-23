@@ -17,18 +17,17 @@ export default function LeftSide() {
   return (
     <div className="relative w-full h-screen">
       <div className="absolute left-0 top-0 w-[40vh] h-full bg-gray-200 rounded-l-lg p-4">
-        <div className="flex flex-col items-center">
-          <form action={action}>
+        <div className="flex flex-col items-center justify-center">
+          <form action={action} className="flex  justify-center gap-2 items-center mt-2">
             <Input
               name="city"
-              className="mx-auto mt-4"
               placeholder="Search City"
               htmlSize={12}
               width={"auto"}
               borderColor={"black"}
             />
-            <Button type="submit" colorScheme="blue" className="mt-2">
-              Click
+            <Button type="submit" colorScheme="blue" >
+              Go
             </Button>
           </form>
         <ShowDisplayData weatherData={weatherData}/>

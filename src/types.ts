@@ -14,17 +14,20 @@ export interface WeatherData {
       windspeed?:number;
       feelslike?:number;
     };
-    days?: Array<{
+    days?: {
       datetimeEpoch?: number;
       temp?: number;
       conditions?: string;
-    }>;
+      feelslike?:number;
+    };
   }
   
   export interface WeatherResponse {
     data?: WeatherData;
+  
     error?: string
   }
+
 
 
 

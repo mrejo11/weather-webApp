@@ -1,13 +1,15 @@
 "use server";
 
-import { weatherResponse } from "@/types";
+import { WeatherResponse } from "@/types";
 
-export async function getWeather(formState, formData: FormData): Promise<weatherResponse> {
-  const location = formData.get('city') as string
-  console.log("Location:", location);
+export async function getWeather(formState, formData: FormData): Promise<WeatherResponse> {
+  let location = formData.get('city') as string
+  if(!location){
+    location='london'
+  }
+  
   const API_KEY = "UT6XYSDRC6PYD5LBUFK5G3K84";
   const API_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=current&key=${API_KEY}&contentType=json`;
-
 
 
   try {
@@ -15,6 +17,7 @@ export async function getWeather(formState, formData: FormData): Promise<weather
     if (!res.ok) throw new Error("cant find city");
 
     const data = await res.json();
+    
     return { data }
   } catch (error) {
     return { error: (error as Error).message };
