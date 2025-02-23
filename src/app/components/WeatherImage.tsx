@@ -9,6 +9,7 @@ import PartyCloudeDay from "../../../public/partly-cloudy-day.jpg"
 import Error from "../../../public/Error.jpg"
 import wind from "../../../public/wind.jpg"
 import fog from "../../../public/fog.jpg"
+import clearNight from "../../../public/clear-night.jpg"
 
 interface ShowDisplayDataProps {
   weatherData: WeatherData | undefined ;
@@ -31,6 +32,8 @@ export default function WeatherImage({ weatherData }:ShowDisplayDataProps) {
     imageSource=PartyCloudeNight
   }else if(weatherSource==='clear-day'){
     imageSource=sunny
+  }else if(weatherSource==='clear-night'){
+    imageSource=clearNight
   }else if(weatherSource==='wind'){
     imageSource=wind
   }else if(weatherSource==='fog'){

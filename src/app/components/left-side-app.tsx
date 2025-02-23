@@ -2,20 +2,19 @@
 // import { WeatherResponse } from "@/types";
 import { Button, Input } from "@chakra-ui/react";
 import * as actions from "@/actions";
-// import { useActionState } from "react";
 import ShowDisplayData from "./show-display-data";
-import { useFormState } from "react-dom";
 import { WeatherResponse } from "@/types";
+import { useActionState } from "react";
 export default function LeftSide() {
   const initialState:WeatherResponse={data:undefined,error:'some error'}
-  const [formState, action] = useFormState(actions.getWeather,initialState);
+  const [formState, action] = useActionState(actions.getWeather,initialState);
   console.log("FormState:", formState);
 
   // const weatherDataToday=formState?.data?.days?.[0]
   const weatherData = formState?.data;
   return (
     <div className="relative w-full h-screen">
-      <div className="absolute left-0 top-0 w-[40vh] h-full bg-gray-200 rounded-l-lg p-4">
+      <div className="absolute left-0 top-0 w-full lg:w-[40vh] h-full bg-gray-200 rounded-l-lg p-4">
         <div className="flex flex-col items-center justify-center">
           <form
             action={action}
