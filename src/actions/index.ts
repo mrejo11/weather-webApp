@@ -2,7 +2,7 @@
 
 import { WeatherResponse } from "@/types";
 
-export async function getWeather(formState:unknown, formData: FormData): Promise<WeatherResponse> {
+export async function getWeather(formState:WeatherResponse, formData: FormData): Promise<WeatherResponse> {
   let location = formData.get('city') as string
   if(!location){
     location='london'

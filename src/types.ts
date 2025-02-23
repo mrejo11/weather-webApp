@@ -24,7 +24,6 @@ export interface WeatherData {
   
   export interface WeatherResponse {
     data?: WeatherData;
-  
     error?: string
   }
 

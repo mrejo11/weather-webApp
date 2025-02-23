@@ -11,7 +11,7 @@ import wind from "../../../public/wind.jpg"
 import fog from "../../../public/fog.jpg"
 
 interface ShowDisplayDataProps {
-  weatherData: WeatherData | undefined;
+  weatherData: WeatherData | undefined ;
 }
 
 
