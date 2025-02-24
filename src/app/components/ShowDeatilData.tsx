@@ -20,11 +20,11 @@ export default function ShowDeatilData({ weatherData }: ShowDisplayDataProps) {
   );
   return (
     <>
-      <div className="absolute flex gap-20 top-1/2 ml-4 lg:translate-y-20">
+      <div className="absolute flex gap-20 top-1/2 ml-4 translate-y-16 lg:translate-y-20">
           <div className="translate-x-3  text-xl">
             Rain Chanse
           </div>
-          <div className="flex items-center translate-x-20 lg:translate-x-10 text-xl"> < WiRaindrop className=" flex items-center w-6 h-6 text-blue-500" />{`${Math.floor(rainChance)}%`}</div>
+          <div className="flex items-center translate-x-10 lg:translate-x-10 text-xl"> < WiRaindrop className=" flex items-center w-6 h-6 text-blue-500" />{`${Math.floor(rainChance)}%`}</div>
       </div>
     </>
   );
