@@ -46,7 +46,7 @@ export default function WeatherImage({ weatherData }:ShowDisplayDataProps) {
     
   return (
     <>
-    <div className="absolute w-[150px] top-1/4">
+    <div className="absolute w-[150px] top-40 mt-2 lg:top-1/4">
       <Image className="rounded-lg " src={imageSource} alt="weather" />
       <p className="flex justify-center mt-2">{weatherData?.currentConditions?.conditions}</p>
     </div>

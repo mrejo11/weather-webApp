@@ -37,7 +37,7 @@ console.log(rainChance)
       </div>
       <WeatherImage weatherData={weatherData}/>
 
-      <div className="absolute flex  top-1/2 -translate-y-5 translate-x-6 text-4xl text-orange-500">
+      <div className="absolute flex top-20  lg:top-1/2 -translate-y-5 translate-x-6 text-4xl text-orange-500">
         {temperature>=0 ?`+${Math.round(temperature)}`:`${Math.round(temperature)}`}
         <span className=" text-xl">°C</span>
         <p className="relative right-16 text-xs mt-4 translate-y-8 text-gray-700 ">feelsLike {feelsLike>=0?`${Math.floor(temperature)}`:`${Math.floor(temperature)}`}</p>
