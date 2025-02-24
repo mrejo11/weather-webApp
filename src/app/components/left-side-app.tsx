@@ -5,6 +5,7 @@ import * as actions from "@/actions";
 import ShowDisplayData from "./show-display-data";
 import { WeatherResponse } from "@/types";
 import { useActionState } from "react";
+import ShowDeatilData from "./ShowDeatilData";
 export default function LeftSide() {
   const initialState:WeatherResponse={data:undefined,error:'some error'}
   const [formState, action] = useActionState(actions.getWeather,initialState);
@@ -33,6 +34,7 @@ export default function LeftSide() {
           </form>
           <ShowDisplayData weatherData={weatherData} />
         </div>
+        <ShowDeatilData weatherData={weatherData}/>
       </div>
     </div>
   );
