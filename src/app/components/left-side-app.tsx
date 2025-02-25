@@ -6,16 +6,23 @@ import ShowDisplayData from "./show-display-data";
 import { WeatherResponse } from "@/types";
 import { useActionState } from "react";
 import ShowDeatilData from "./ShowDeatilData";
+import RightSideApp from "./RightSideApp";
+
 export default function LeftSide() {
-  const initialState:WeatherResponse={data:undefined,error:'some error'}
-  const [formState, action] = useActionState(actions.getWeather,initialState);
+  const initialState: WeatherResponse = {
+    data: undefined,
+    error: "some error",
+  };
+  const [formState, action] = useActionState(actions.getWeather, initialState);
   console.log("FormState:", formState);
 
   // const weatherDataToday=formState?.data?.days?.[0]
   const weatherData = formState?.data;
+  const sunRise = weatherData?.currentConditions?.sunrise ?? "";
+  const sunSet = weatherData?.currentConditions?.sunset ?? "";
   return (
     <div className="relative w-full h-screen">
-      <div className="absolute left-0 top-0 w-full lg:w-[40vh] h-full bg-gray-200 rounded-l-lg p-4">
+      <div className="absolute left-0 top-0 w-full lg:w-[50vh] h-full bg-gray-200 rounded-l-lg p-4">
         <div className="flex flex-col items-center justify-center">
           <form
             action={action}
@@ -32,9 +39,19 @@ export default function LeftSide() {
               Go
             </Button>
           </form>
+          <div>
+            {!weatherData && (
+              <div className="text-center text-gray-600 py-12">
+                <p>Enter a city name to get the current weather</p>
+              </div>
+            )}
+          </div>
           <ShowDisplayData weatherData={weatherData} />
         </div>
-        <ShowDeatilData weatherData={weatherData}/>
+        <ShowDeatilData weatherData={weatherData} />
+        <div className="lg:absolute lg:top-0 lg:right-0">
+          <RightSideApp sunRise={sunRise} sunSet={sunSet} />
+        </div>
       </div>
     </div>
   );

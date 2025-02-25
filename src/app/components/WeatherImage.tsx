@@ -13,6 +13,7 @@ import clearNight from "../../../public/clear-night.jpg"
 
 interface ShowDisplayDataProps {
   weatherData: WeatherData | undefined ;
+ 
 }
 
 
