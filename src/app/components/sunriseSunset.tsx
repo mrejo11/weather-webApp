@@ -7,17 +7,17 @@ interface SunriseSunsetProps {
 }
 
 function SunriseSunset({ sunriseTime, sunsetTime }: SunriseSunsetProps) {
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit" }));
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit",hour12:false }));
 console.log('sunriseTime:',sunriseTime)
 console.log('sunsetTime:',sunsetTime)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" }));
+      setCurrentTime(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit",hour12:false }));
     }, 60000); // هر دقیقه زمان رو آپدیت کنه
 
     return () => clearInterval(interval);
   }, []);
-
+console.log(typeof sunsetTime)
   return (
     <div className="flex flex-col  translate-y-52 w-[40vh] h-full items-center justify-center lg:w-[50vh] lg:h-[50vh] lg:translate-y-0 bg-gray-100 rounded-lg shadow-md p-4">
       <div className="relative w-full h-[50vw] flex items-center justify-center">
@@ -31,7 +31,7 @@ console.log('sunsetTime:',sunsetTime)
             strokeDasharray="2"
           />
           {/* خورشید */}
-          <circle cx="50" cy="10" r="5" fill={sunsetTime===currentTime?"#494444":"#facc15"} />
+          <circle cx="50" cy="10" r="5" fill={sunsetTime==currentTime?"#494444":"#facc15"} />
         </svg>
 
         {/* نمایش طلوع، زمان فعلی، غروب */}
