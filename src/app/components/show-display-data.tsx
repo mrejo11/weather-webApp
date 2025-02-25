@@ -26,12 +26,12 @@ export default function ShowDisplayData({ weatherData }: ShowDisplayDataProps) {
       </div>
       <WeatherImage weatherData={weatherData} />
 
-      <div className=" absolute flex right-36 top-80 mt-8  lg:top-80 lg:mt-24 lg:right-44 text-4xl text-orange-500">
+      <div className=" absolute flex translate-x-8 top-80 mt-8  lg:top-72 lg:mt-32 lg:translate-x-6 text-4xl text-orange-500">
         {temperature >= 0
           ? `+${Math.round(temperature)}`
           : `${Math.round(temperature)}`}
         <span className=" text-xl">°C</span>
-        <p className="absolute text-xs mt-4 translate-y-8 text-gray-700 ">
+        <p className=" text-xs mt-4 -translate-x-16 translate-y-8 lg:-translate-x-16 text-gray-700 ">
           feelsLike{" "}
           {feelsLike >= 0
             ? `${Math.floor(temperature)}`
