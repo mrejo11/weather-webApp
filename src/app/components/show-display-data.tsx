@@ -26,7 +26,7 @@ export default function ShowDisplayData({ weatherData }: ShowDisplayDataProps) {
       </div>
       <WeatherImage weatherData={weatherData} />
 
-      <div className=" relative flex right-8 top-36  lg:top-48 text-4xl text-orange-500">
+      <div className=" absolute flex right-36 top-80 mt-8  lg:top-80 lg:mt-24 lg:right-44 text-4xl text-orange-500">
         {temperature >= 0
           ? `+${Math.round(temperature)}`
           : `${Math.round(temperature)}`}
