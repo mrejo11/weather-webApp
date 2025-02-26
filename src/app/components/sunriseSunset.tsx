@@ -2,14 +2,16 @@
 import { useState, useEffect } from "react";
 
 interface SunriseSunsetProps {
-  sunriseTime: string|undefined; // مثلا "06:00"
-  sunsetTime: string;  // مثلا "18:30"
+  sunriseTime: string|undefined; 
+  sunsetTime: string; 
+  sunsetEpoch:number;
 }
 
-function SunriseSunset({ sunriseTime, sunsetTime }: SunriseSunsetProps) {
+function SunriseSunset({ sunriseTime, sunsetTime,sunsetEpoch }: SunriseSunsetProps) {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit",hour12:false }));
-console.log('sunriseTime:',sunriseTime)
-console.log('sunsetTime:',sunsetTime)
+  const now=new Date()
+  const currentTimeEpoch=Math.floor(now.getTime()/1000)
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit",hour12:false }));
@@ -17,7 +19,7 @@ console.log('sunsetTime:',sunsetTime)
 
     return () => clearInterval(interval);
   }, []);
-console.log(typeof sunsetTime)
+
   return (
     <div className="flex flex-col  translate-y-52 w-[40vh] h-full items-center justify-center lg:w-[50vh] lg:h-[50vh] lg:translate-y-0 bg-gray-100 rounded-lg shadow-md p-4">
       <div className="relative w-full h-[50vw] flex items-center justify-center">
@@ -31,7 +33,7 @@ console.log(typeof sunsetTime)
             strokeDasharray="2"
           />
           {/* خورشید */}
-          <circle cx="50" cy="10" r="5" fill={sunsetTime==currentTime?"#494444":"#facc15"} />
+          <circle cx="50" cy="10" r="5" fill={sunsetEpoch===currentTimeEpoch?"#494444":"#facc15"} />
         </svg>
 
         {/* نمایش طلوع، زمان فعلی، غروب */}
@@ -44,3 +46,4 @@ console.log(typeof sunsetTime)
 }
 
 export default SunriseSunset;
+

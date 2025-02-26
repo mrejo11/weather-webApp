@@ -15,13 +15,17 @@ export interface WeatherData {
     feelslike?: number;
     sunrise?: string;
     sunset?: string;
+    sunsetEpoch?:number
   };
-  days?: {
+  days?:Array< {
     datetimeEpoch?: number;
     temp?: number;
     conditions?: string;
     feelslike?: number;
-  };
+    tempmax?:number;
+    tempmin?:number;
+    datetime?:string;
+  }>;
 }
 
 export interface WeatherResponse {

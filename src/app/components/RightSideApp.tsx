@@ -1,14 +1,29 @@
-import SunriseSunset from "./sunriseSunset"
-
-interface SunriseSunsetProps{
-    sunRise:string;
-    sunSet:string
+import SunriseSunset from "./sunriseSunset";
+import { WeatherData } from "@/types";
+import TemperatureCurveChart from "./TemperatureCurveChart";
+interface ShowDisplayDataRight {
+  weatherData: WeatherData | undefined;
 }
 
-export default function RightSideApp({sunRise,sunSet}:SunriseSunsetProps){
+export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
+  const sunRise = weatherData?.currentConditions?.sunrise ?? "";
+  const sunSet = weatherData?.currentConditions?.sunset ?? "";
+  const sunsetEpoch = weatherData?.currentConditions?.sunsetEpoch ?? 0;
+  // const tempMax = weatherData?.days?.tempmax ?? 0;
+  // const labels = weatherData?.days?.datetime ?? "";
+  // const tempMin = weatherData?.days?.tempmin ?? 0;
   return (
-    <div className="absolute bottom-14 m-5 w-auto h-auto lg:top-0 ">
-      <SunriseSunset sunriseTime={sunRise} sunsetTime={sunSet}/>
-    </div>
-  )
+    <>
+      <div className="absolute bottom-14 m-5 w-auto h-auto lg:top-0 ">
+        <SunriseSunset
+          sunriseTime={sunRise}
+          sunsetTime={sunSet}
+          sunsetEpoch={sunsetEpoch}
+        />
+      </div>
+      <div className="absolute top-[120vh] flex items-center justify-center  lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-60">
+        <TemperatureCurveChart weatherData={weatherData}/>
+      </div>
+    </>
+  );
 }

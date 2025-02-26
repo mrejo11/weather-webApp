@@ -7,7 +7,7 @@ interface ShowDisplayDataProps {
 
 export default function ShowDisplayData({ weatherData }: ShowDisplayDataProps) {
   const temperature = weatherData?.currentConditions?.temp ?? 0;
-  const feelsLike = weatherData?.days?.feelslike ?? 0;
+  const feelsLike = weatherData?.currentConditions?.feelslike ??0;
 
   return (
     <div className="flex items-center justify-center">
@@ -35,9 +35,7 @@ export default function ShowDisplayData({ weatherData }: ShowDisplayDataProps) {
         </div>
         <p className="text-xs text-gray-700">
           feelsLike{" "}
-          {feelsLike >= 0
-            ? `${Math.floor(feelsLike)}`
-            : `${Math.floor(feelsLike)}`}
+          {feelsLike}
         </p>
       </div>
     </div>

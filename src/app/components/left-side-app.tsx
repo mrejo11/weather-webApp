@@ -18,8 +18,8 @@ export default function LeftSide() {
 
   // const weatherDataToday=formState?.data?.days?.[0]
   const weatherData = formState?.data;
-  const sunRise = weatherData?.currentConditions?.sunrise ?? "";
-  const sunSet = weatherData?.currentConditions?.sunset ?? "";
+
+  
   return (
     <div className="relative w-full h-screen">
       <div className="absolute left-0 top-0 w-full lg:w-[50vh] h-full bg-gray-200 rounded-l-lg p-4">
@@ -50,7 +50,9 @@ export default function LeftSide() {
         </div>
         <ShowDeatilData weatherData={weatherData} />
         <div className="lg:absolute lg:top-0 lg:right-0">
-          <RightSideApp sunRise={sunRise} sunSet={sunSet} />
+          <RightSideApp
+            weatherData={weatherData}
+          />
         </div>
       </div>
     </div>
