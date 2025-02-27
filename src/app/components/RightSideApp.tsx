@@ -21,7 +21,7 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
           sunsetEpoch={sunsetEpoch}
         />
       </div>
-      <div className="absolute top-[120vh] flex items-center justify-center  lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-60">
+      <div className="absolute mt-80 mb-3 top-[80vh]  -translate-x-4 flex items-center justify-center  lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-60 lg:-translate-y-80">
         <TemperatureCurveChart weatherData={weatherData}/>
       </div>
     </>
