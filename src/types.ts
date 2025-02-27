@@ -24,7 +24,8 @@ export interface WeatherData {
     feelslike?: number;
     tempmax?:number;
     tempmin?:number;
-    datetime?:string;
+    datetime:string;
+    icon: string;
   }>;
 }
 

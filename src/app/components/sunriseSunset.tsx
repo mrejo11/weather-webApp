@@ -15,13 +15,13 @@ function SunriseSunset({ sunriseTime, sunsetTime,sunsetEpoch }: SunriseSunsetPro
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit",hour12:false }));
-    }, 60000); // هر دقیقه زمان رو آپدیت کنه
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex flex-col  translate-y-52 w-[40vh] h-full items-center justify-center lg:w-[50vh] lg:h-[50vh] lg:translate-y-0 bg-gray-100 rounded-lg shadow-md p-4">
+    <div className="flex flex-col  translate-y-52 w-[40vh] h-full items-center justify-center lg:w-[50vh] lg:h-[40vh] lg:translate-y-0 bg-gray-100 rounded-lg shadow-md p-4">
       <div className="relative w-full h-[50vw] flex items-center justify-center">
         {/* مسیر منحنی حرکت خورشید */}
         <svg className="absolute inset-0 w-full h-full " viewBox="0 0 100 50" preserveAspectRatio="xMidYMid meet">
