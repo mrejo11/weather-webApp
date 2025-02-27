@@ -29,7 +29,7 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
       </div>
 
       <div className="absolute top-[350px]">
-        <div className="absolute top-[500px] mt-10 lg:mt-7 lg:top-16 lg:m-5 ">
+        <div className="absolute top-[500px] mt-16 lg:mt-7 lg:top-16 lg:m-5 ">
         <h1 className="text-2xl font-bold ">Daily Forcast</h1>
         </div>
         <WeatherDaysForcast weatherData={weatherData}/>
