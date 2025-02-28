@@ -14,7 +14,7 @@ export default function WeatherDaysForcast({
   function formatDate(dateString: string) {
     const [ ,month, day] = dateString.split("-").map(Number);
 
-    const date = new Date(new Date().getFullYear(), month - 1, day); // تبدیل به تاریخ
+    const date = new Date(new Date().getFullYear(), month - 1, day); 
 
     return new Intl.DateTimeFormat("en-US", {
       month: "long",
@@ -84,7 +84,7 @@ export default function WeatherDaysForcast({
   });
 
   return (
-    <div className=" grid grid-cols-1 translate-y-[630px] gap-y-2 top-[600px] left-3
+    <div className=" translate-y-[600px] grid grid-cols-1  gap-y-2  
     lg:grid lg:grid-cols-5 lg:gap-x-72 lg:gap-y-10 lg:p-4 lg:justify-center lg:scale-75 lg:translate-y-20 ">
       {dataDays}
     </div>

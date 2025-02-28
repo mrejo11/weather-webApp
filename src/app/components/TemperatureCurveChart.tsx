@@ -8,7 +8,7 @@ interface ShowDisplayDataRight {
 
 export default function TemperatureChart({ weatherData }: ShowDisplayDataRight) {
   if (!weatherData || !weatherData.days) {
-    return <div className="flex items-center w-full h-60 translate-x-44"><p className="text-xl p-4 bg-cyan-300 items-center">There is no data For Show Please Enter a City</p></div>;
+    return <div className="flex translate-x-7 items-center w-full h-60 lg:translate-x-44"><p className="text-xl p-4 bg-cyan-300 items-center">There is no data For Show Please Enter a City</p></div>;
   }
 
   // in rechart js for get dynamic data to show on display we use this way remember
