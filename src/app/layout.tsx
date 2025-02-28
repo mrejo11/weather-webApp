@@ -52,13 +52,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
-        <footer className="bg-gray-800 text-white p-4 text-center">
+        <footer className="bg-gray-200 text-gray-800 p-4 text-center">
           <p>
             © 2025 Weather Forecast. Using Visual Crossing API
             source code{" In "}
             <a
               href="https://github.com/mrejo11/weather-webApp"
-              className="text-blue-400 hover:underline text-xl ml-2"
+              className="text-orange-400 hover:underline text-xl ml-2"
             >
               <i className="fab fa-github"></i>
             </a>
