@@ -17,7 +17,7 @@ export async function getWeather(formState: WeatherResponse, formData: FormData)
     if (!res.ok) throw new Error("cant find city");
 
     const data = await res.json();
-    console.log(data)
+    // console.log(data)
     return { data }
   } catch (error) {
     return { error: (error as Error).message };

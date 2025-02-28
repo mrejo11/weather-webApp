@@ -8,16 +8,16 @@ import { useActionState } from "react";
 import ShowDeatilData from "./ShowDeatilData";
 import RightSideApp from "./RightSideApp";
 
-export default function LeftSide() {
+export default function MainDisplay() {
   const initialState: WeatherResponse = {
     data: undefined,
     error: "some error",
   };
   const [formState, action] = useActionState(actions.getWeather, initialState);
-  console.log("FormState:", formState);
-
+  // console.log("FormState:", formState);
   // const weatherDataToday=formState?.data?.days?.[0]
   const weatherData = formState?.data;
+
 
   
   return (

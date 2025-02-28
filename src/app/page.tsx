@@ -1,11 +1,12 @@
 "use client";
 
-import LeftSide from "./components/left-side-app";
+import MainDisplay from "./components/MainDisplay";
+
 
 export default function Home() {
   return (
     <>
-    <LeftSide />
+    <MainDisplay />
     </>
   )
 
