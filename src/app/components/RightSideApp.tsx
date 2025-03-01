@@ -28,16 +28,17 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
         />
       </div>
       <div className="relative">
-        <div className="absolute  mb-3 translate-y-[800px]  -translate-x-4 flex items-center justify-center  lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-52 lg:translate-y-0">
+        <div className="absolute lg:-translate-x-12 lg:scale-75 xl:scale-100 mb-3 translate-y-[800px]  flex items-center justify-center lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-52 lg:translate-y-0 ">
           <TemperatureCurveChart weatherData={weatherData} />
         </div>
       </div>
-
-      <div className="relative top-[400px] left-[1200px]">
-        <div className="absolute top-[550px] mt-16 lg:mt-7 lg:top-16 lg:m-5 ">
+    <div className="relative">
+      <div className="absolute lg:top-[250] xl:top-[350px] lg:-translate-x-36 xl:translate-x-0 lg:scale-75 xl:scale-100">
+        <div className="absolute top-[200px] mt-16 lg:mt-7 lg:top-16 lg:m-5 ">
         <h1 className="text-2xl font-bold ">Daily Forcast</h1>
         </div>
         <WeatherDaysForcast weatherData={weatherData}/>
+      </div>
       </div>
       {/* <div className="absolute top-[2100px]">all copy Right</div> */}
     </>
