@@ -85,7 +85,7 @@ export default function WeatherDaysForcast({
 
   return (
     <div className=" translate-y-[680px] translate-x-3 grid grid-cols-1  gap-y-2  
-    lg:grid lg:grid-cols-5 lg:gap-x-72 lg:gap-y-10 lg:p-4 lg:justify-center lg:scale-50 lg:translate-y-0 2xl:translate-y-24 2xl:scale-90">
+    lg:grid lg:grid-cols-5 lg:gap-x-72 lg:gap-y-10 2xl:gap-y-10 lg:p-4 lg:justify-center lg:scale-[0.6]  lg:translate-y-12  2xl:translate-y-24 2xl:scale-90">
       {dataDays}
     </div>
   );
