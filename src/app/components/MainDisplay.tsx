@@ -22,7 +22,7 @@ export default function MainDisplay() {
   
   return (
     <div className="relative w-full h-screen">
-      <div className="absolute left-0 top-0 w-full lg:w-[50vh] h-full bg-gray-200 rounded-l-lg p-4">
+      <div className="absolute left-0 top-0 w-full lg:w-[50vh] h-full lg:h-[790] 3xl:h-[1010px] bg-gray-200 rounded-l-lg p-4">
         <div className="flex flex-col items-center justify-center">
           <form
             action={action}
