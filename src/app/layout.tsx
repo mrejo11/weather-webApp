@@ -52,7 +52,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
-        <footer className=" bg-gray-800 text-white p-4 text-center translate-y-[2600px] lg:translate-y-16 lg:w-[1520px] 3xl:w-[1903px]">
+        <footer className="bg-gray-800 text-white p-4 text-center translate-y-[2600px] lg:translate-y-0">
           <p>
             © 2025 Weather Forecast. Using Visual Crossing API
             source code{" In "}
