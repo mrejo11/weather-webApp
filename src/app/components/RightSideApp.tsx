@@ -10,10 +10,14 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   const sunRise = weatherData?.currentConditions?.sunrise ?? "";
   const sunSet = weatherData?.currentConditions?.sunset ?? "";
   const sunsetEpoch = weatherData?.currentConditions?.sunsetEpoch ?? 0;
-  if(!weatherData){
-    return <div className="hidden lg:flex  absolute justify-center lg:w-[600px] lg:h-[300px] p-4  lg:top-[25vh] lg:left-[40vh] bg-gray-200 lg:rounded-xl lg:text-xl text-orange-500">
-      <div className="text-xl text-orange-600 translate-y-[120px]">For see To show Data Please Enter a city</div>
-    </div>
+  if (!weatherData) {
+    return (
+      <div className="hidden lg:flex  absolute justify-center lg:w-[600px] lg:h-[300px] p-4  lg:top-[25vh] lg:left-[40vh] bg-gray-200 lg:rounded-xl lg:text-xl text-orange-500">
+        <div className="text-xl text-orange-600 translate-y-[120px]">
+          For see To show Data Please Enter a city
+        </div>
+      </div>
+    );
   }
   // const tempMax = weatherData?.days?.tempmax ?? 0;
   // const labels = weatherData?.days?.datetime ?? "";
@@ -32,14 +36,15 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
           <TemperatureCurveChart weatherData={weatherData} />
         </div>
       </div>
-    <div className="relative">
-      <div className="absolute lg:top-[250] xl:top-[350px] xl:-translate-x-36 2xl:translate-x-0 lg:scale-75 xl:scale-75 2xl:scale-100 lg:-translate-y-20 2xl:translate-y-5">
-        <div className="absolute top-[200px] mt-16 lg:mt-7 lg:top-16 lg:m-5 ">
-        <h1 className="text-2xl font-bold ">Daily Forcast</h1>
+      <div className="relative flex justify-center">
+        <div className="absolute top-[250px] xl:top-[350px] xl:-translate-x-36 2xl:translate-x-0 scale-90 lg:scale-75 xl:scale-75 2xl:scale-100 lg:-translate-y-0 2xl:translate-y-5 lg:translate-x-[400px]">
+          <div className="absolute top-[200px] mt-16 lg:mt-7 lg:top-16 lg:translate-x-16 lg:m-5">
+            <h1 className="text-2xl font-bold text-center">Daily Forecast</h1>
+          </div>
+          <WeatherDaysForcast weatherData={weatherData} />
         </div>
-        <WeatherDaysForcast weatherData={weatherData}/>
       </div>
-      </div>
+
       {/* <div className="absolute top-[2100px]">all copy Right</div> */}
     </>
   );
