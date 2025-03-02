@@ -24,28 +24,29 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   // const tempMin = weatherData?.days?.tempmin ?? 0;
   return (
     <>
-      <div className="absolute bottom-14 m-5 w-auto h-auto lg:top-0 ">
+      <div className="absolute lg:left-[165vh] lg:top-[5vh]
+      
+        xl:left-[130vh] xl:top-[5vh]">
+        <div className="">
         <SunriseSunset
           sunriseTime={sunRise}
           sunsetTime={sunSet}
           sunsetEpoch={sunsetEpoch}
         />
       </div>
+      </div>
+
       <div className="relative">
-        <div className="absolute lg:-translate-x-12 lg:scale-75 xl:scale-100 mb-3 translate-y-[800px]  flex items-center justify-center lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-52 lg:translate-y-0 ">
+        <div className=" ">
           <TemperatureCurveChart weatherData={weatherData} />
         </div>
       </div>
-      <div className="relative flex justify-center">
-        <div className="absolute top-[250px] xl:top-[350px] xl:-translate-x-36 2xl:translate-x-0 scale-90 lg:scale-75 xl:scale-75 2xl:scale-100 lg:-translate-y-0 2xl:translate-y-5 lg:translate-x-[400px]">
-          <div className="absolute top-[200px] mt-16 lg:mt-7 lg:top-16 lg:translate-x-16 lg:m-5">
+        <div>
+          <div className="">
             <h1 className="text-2xl font-bold text-center">Daily Forecast</h1>
           </div>
           <WeatherDaysForcast weatherData={weatherData} />
-        </div>
-      </div>
-
-      {/* <div className="absolute top-[2100px]">all copy Right</div> */}
+          </div>
     </>
   );
 }
