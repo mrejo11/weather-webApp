@@ -55,5 +55,5 @@ npm run dev
 ```
 
 ## 🔗 Demo Version  
-To view the project preview, visit [this link](https://weather-re.netlify.app).
+To view the project preview, visit [this link](https://weather-re.netlify.app)
 
