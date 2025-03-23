@@ -12,7 +12,7 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   const sunsetEpoch = weatherData?.currentConditions?.sunsetEpoch ?? 0;
   if(!weatherData){
     return <div className="hidden lg:flex  absolute justify-center lg:w-[600px] lg:h-[300px] p-4  lg:top-[25vh] lg:left-[40vh] bg-gray-200 lg:rounded-xl lg:text-xl text-orange-500">
-      <div className="text-xl text-orange-600 translate-y-[120px]">For see To show Data Please Enter a city</div>
+      <div className="text-xl text-orange-600 translate-y-[120px]">please input a City to show Data</div>
     </div>
   }
   // const tempMax = weatherData?.days?.tempmax ?? 0;
