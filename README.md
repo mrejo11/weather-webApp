@@ -20,7 +20,7 @@
 
 ```bash
 git clone https://github.com/mrejo11/weather-webApp.git  
-cd weather-app  
+cd weather-webApp  
 npm install  
 npm run dev  
 ```
