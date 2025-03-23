@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌦️ Weather App
 
-## Getting Started
+این اپلیکیشن با استفاده از Next.js توسعه یافته و به کاربران امکان می‌دهد شهر موردنظر خود را وارد کرده و اطلاعات آب‌وهوایی مربوط به آن را مشاهده کنند. از جمله ویژگی‌های این اپلیکیشن می‌توان به نمایش نمودار پیش‌بینی ۱۵ روزه و مشاهده جزئیات آب‌وهوای ۹ روز آینده به‌صورت مجزا اشاره کرد.
 
-First, run the development server:
+## 🛠️ تکنولوژی‌ها  
+- **Next.js 14+** (استفاده از server action برای مدیریت درخواست‌های سمت سرور)  
+- **Recharts** برای نمایش نمودار پیش‌بینی ۱۵ روزه  
+- **Chakra UI** برای بهینه‌سازی سرعت توسعه  
+- **Tailwind CSS** برای طراحی سبک و سریع  
+- **Visual Crossing API** برای دریافت داده‌های آب‌وهوای شهرها  
+
+## 🚀 ویژگی‌ها  
+✅ نمایش دمای فعلی، رطوبت و سرعت باد  
+✅ جستجوی شهرها با API  
+✅ نمایش چارت ۱۵ روزه  
+✅ رابط کاربری سریع و بهینه  
+✅ طراحی کاملاً ریسپانسیو  
+
+## 🔧 نحوه اجرا  
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/mrejo11/weather-webApp.git  
+cd weather-app  
+npm install  
+npm run dev  
 ```
+## 🔗 نسخه دمو  
+برای مشاهده پیش‌نمایش پروژه، به [این لینک](https://weather-re.netlify.app) مراجعه کنید.
+# 🌦️ Weather App
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This application is developed using Next.js and allows users to enter their desired city and view the corresponding weather data. Some of the key features include displaying a 15-day forecast chart and viewing detailed weather information for the next 9 days separately.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies  
+- **Next.js 14+** (using server actions for managing server-side requests)  
+- **Recharts** for displaying the 15-day forecast chart  
+- **Chakra UI** for optimizing development speed  
+- **Tailwind CSS** for lightweight and fast design  
+- **Visual Crossing API** for fetching weather data  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Features  
+✅ Displays current temperature, humidity, and wind speed  
+✅ City search functionality with API  
+✅ 15-day forecast chart  
+✅ Fast and optimized user interface  
+✅ Fully responsive design  
 
-## Learn More
+## 🔧 How to run  
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git clone https://github.com/mrejo11/weather-webApp.git  
+cd weather-app  
+npm install  
+npm run dev  
+```
+## 🔗 Demo Version  
+To view the project preview, visit [this link](https://weather-re.netlify.app).
