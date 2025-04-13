@@ -8,9 +8,17 @@ interface ShowDisplayDataRight {
   weatherData: WeatherData | undefined;
 }
 
+interface ChartDataPoint {
+  date: string;
+  temp: number;
+  feelsLike: number;
+  maxTemp: number;
+  minTemp: number;
+}
+
 export default function TemperatureChart({ weatherData }: ShowDisplayDataRight) {
   const [activeTab, setActiveTab] = useState<'temp' | 'feels'>('temp');
-  const [chartData, setChartData] = useState<Array<any>>([]);
+  const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
 
   useEffect(() => {
     if (weatherData?.days) {
