@@ -1,6 +1,6 @@
 "use client";
 import { WeatherData } from "@/types";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label, Area, AreaChart, Legend } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label, Area, AreaChart, Legend, TooltipProps } from "recharts";
 import { useState } from "react";
 
 interface ShowDisplayDataRight {
@@ -28,20 +28,15 @@ export default function TemperatureChart({ weatherData }: ShowDisplayDataRight) 
   }));
 
   // Custom tooltip component
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
     if (active && payload && payload.length) {
-      const temperature = payload[0]?.value ?? 'N/A';
-      const feelsLike = payload[1]?.value ?? 'N/A';
-      const maxTemp = payload[2]?.value ?? 'N/A';
-      const minTemp = payload[3]?.value ?? 'N/A';
-
       return (
         <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-md">
           <p className="font-semibold text-gray-800">{label}</p>
-          <p className="text-blue-600">Temperature: {temperature}°C</p>
-          <p className="text-purple-600">Feels Like: {feelsLike}°C</p>
-          <p className="text-green-600">Max: {maxTemp}°C</p>
-          <p className="text-red-600">Min: {minTemp}°C</p>
+          <p className="text-blue-600">Temperature: {payload[0].value}°C</p>
+          <p className="text-purple-600">Feels Like: {payload[1].value}°C</p>
+          <p className="text-green-600">Max: {payload[2].value}°C</p>
+          <p className="text-red-600">Min: {payload[3].value}°C</p>
         </div>
       );
     }

@@ -9,42 +9,49 @@ interface SunriseSunsetProps {
 }
 
 function SunriseSunset({ sunriseTime, sunsetTime, sunsetEpoch }: SunriseSunsetProps) {
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }));
-  const now = new Date();
-  const currentTimeEpoch = Math.floor(now.getTime()/1000);
-  const isDaytime = currentTimeEpoch < sunsetEpoch;
+  const [currentTime, setCurrentTime] = useState<string>("");
+  const [isDaytime, setIsDaytime] = useState<boolean>(true);
+  const [sunPosition, setSunPosition] = useState<number>(50);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }));
-    }, 60000);
-
+    // Set initial values
+    const updateTimeAndPosition = () => {
+      const now = new Date();
+      const currentTimeEpoch = Math.floor(now.getTime()/1000);
+      
+      setCurrentTime(now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false }));
+      setIsDaytime(currentTimeEpoch < sunsetEpoch);
+      
+      // Calculate sun position
+      if (sunriseTime && sunsetTime) {
+        const sunriseParts = sunriseTime.split(':');
+        const sunsetParts = sunsetTime.split(':');
+        
+        const sunriseMinutes = parseInt(sunriseParts[0]) * 60 + parseInt(sunriseParts[1]);
+        const sunsetMinutes = parseInt(sunsetParts[0]) * 60 + parseInt(sunsetParts[1]);
+        
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+        
+        if (currentMinutes < sunriseMinutes) {
+          setSunPosition(0);
+        } else if (currentMinutes > sunsetMinutes) {
+          setSunPosition(100);
+        } else {
+          const totalDayMinutes = sunsetMinutes - sunriseMinutes;
+          const elapsedMinutes = currentMinutes - sunriseMinutes;
+          setSunPosition((elapsedMinutes / totalDayMinutes) * 100);
+        }
+      }
+    };
+    
+    // Initial update
+    updateTimeAndPosition();
+    
+    // Set up interval for updates
+    const interval = setInterval(updateTimeAndPosition, 60000);
+    
     return () => clearInterval(interval);
-  }, []);
-
-  // Calculate sun position (0-100%)
-  const calculateSunPosition = () => {
-    if (!sunriseTime || !sunsetTime) return 50;
-    
-    const sunriseParts = sunriseTime.split(':');
-    const sunsetParts = sunsetTime.split(':');
-    
-    const sunriseMinutes = parseInt(sunriseParts[0]) * 60 + parseInt(sunriseParts[1]);
-    const sunsetMinutes = parseInt(sunsetParts[0]) * 60 + parseInt(sunsetParts[1]);
-    
-    const now = new Date();
-    const currentMinutes = now.getHours() * 60 + now.getMinutes();
-    
-    if (currentMinutes < sunriseMinutes) return 0;
-    if (currentMinutes > sunsetMinutes) return 100;
-    
-    const totalDayMinutes = sunsetMinutes - sunriseMinutes;
-    const elapsedMinutes = currentMinutes - sunriseMinutes;
-    
-    return (elapsedMinutes / totalDayMinutes) * 100;
-  };
-
-  const sunPosition = calculateSunPosition();
+  }, [sunriseTime, sunsetTime, sunsetEpoch]);
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -84,7 +91,7 @@ function SunriseSunset({ sunriseTime, sunsetTime, sunsetEpoch }: SunriseSunsetPr
         
         <div className="flex flex-col items-center">
           <div className="text-sm text-gray-600 mb-1">Current</div>
-          <p className="font-medium text-gray-800">{currentTime}</p>
+          <p className="font-medium text-gray-800">{currentTime || '--:--'}</p>
         </div>
         
         <div className="flex flex-col items-center">

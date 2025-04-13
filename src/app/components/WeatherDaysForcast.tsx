@@ -1,6 +1,5 @@
 "use client";
 import { WeatherData } from "@/types";
-import Image from "next/image";
 import { useState } from "react";
 import { WiDaySunny, WiNightClear, WiRain, WiSnow, WiCloudy, WiFog, WiStrongWind } from "react-icons/wi";
 

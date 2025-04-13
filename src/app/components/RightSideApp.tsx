@@ -2,9 +2,8 @@ import SunriseSunset from "./sunriseSunset";
 import { WeatherData } from "@/types";
 import TemperatureCurveChart from "./TemperatureCurveChart";
 import WeatherDaysForcast from "./WeatherDaysForcast";
-import { WiRaindrop, WiStrongWind, WiHumidity, WiDaySunny, WiBarometer } from "react-icons/wi";
-import { FaTemperatureHigh, FaTemperatureLow, FaCloudRain, FaWind, FaSun, FaMoon } from "react-icons/fa";
-import { MdVisibility, MdWaterDrop } from "react-icons/md";
+import {  WiStrongWind, WiHumidity, WiDaySunny, WiBarometer } from "react-icons/wi";
+import {  FaCloudRain } from "react-icons/fa";
 import { TbUvIndex } from "react-icons/tb";
 
 interface ShowDisplayDataRight {
@@ -28,12 +27,7 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   
   // Calculate rain chance
   const dewPoint = weatherData?.currentConditions?.dew ?? 20;
-  const rainChance = Math.abs(
-    (dewPoint - currentTemp) * 3 +
-    0.2 * cloudCover -
-    0.01 * (pressure - 1013) +
-    0.1 * windSpeed
-  );
+
 
   if(!weatherData){
     return (
