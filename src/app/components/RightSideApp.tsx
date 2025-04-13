@@ -2,6 +2,11 @@ import SunriseSunset from "./sunriseSunset";
 import { WeatherData } from "@/types";
 import TemperatureCurveChart from "./TemperatureCurveChart";
 import WeatherDaysForcast from "./WeatherDaysForcast";
+import { WiRaindrop, WiStrongWind, WiHumidity, WiDaySunny, WiBarometer } from "react-icons/wi";
+import { FaTemperatureHigh, FaTemperatureLow, FaCloudRain, FaWind, FaSun, FaMoon } from "react-icons/fa";
+import { MdVisibility, MdWaterDrop } from "react-icons/md";
+import { TbUvIndex } from "react-icons/tb";
+
 interface ShowDisplayDataRight {
   weatherData: WeatherData | undefined;
 }
@@ -10,36 +15,85 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   const sunRise = weatherData?.currentConditions?.sunrise ?? "";
   const sunSet = weatherData?.currentConditions?.sunset ?? "";
   const sunsetEpoch = weatherData?.currentConditions?.sunsetEpoch ?? 0;
+  
+  // Extract current weather data
+  const currentTemp = weatherData?.currentConditions?.temp ?? 0;
+  const feelsLike = weatherData?.currentConditions?.feelslike ?? 0;
+  const humidity = weatherData?.currentConditions?.humidity ?? 0;
+  const windSpeed = weatherData?.currentConditions?.windspeed ?? 0;
+  const pressure = weatherData?.currentConditions?.pressure ?? 0;
+  const uvIndex = weatherData?.currentConditions?.uvindex ?? 0;
+  const cloudCover = weatherData?.currentConditions?.cloudcover ?? 0;
+  const conditions = weatherData?.currentConditions?.conditions ?? "";
+  
+  // Calculate rain chance
+  const dewPoint = weatherData?.currentConditions?.dew ?? 20;
+  const rainChance = Math.abs(
+    (dewPoint - currentTemp) * 3 +
+    0.2 * cloudCover -
+    0.01 * (pressure - 1013) +
+    0.1 * windSpeed
+  );
+
   if(!weatherData){
-    return <div className="hidden lg:flex  absolute justify-center lg:w-[600px] lg:h-[300px] p-4  lg:top-[25vh] lg:left-[40vh] bg-gray-200 lg:rounded-xl lg:text-xl text-orange-500">
-      <div className="text-xl text-orange-600 translate-y-[120px]">please input a City to show Data</div>
-    </div>
-  }
-  // const tempMax = weatherData?.days?.tempmax ?? 0;
-  // const labels = weatherData?.days?.datetime ?? "";
-  // const tempMin = weatherData?.days?.tempmin ?? 0;
-  return (
-    <>
-      <div className="absolute bottom-14 m-5 w-auto h-auto lg:top-0 ">
-        <SunriseSunset
-          sunriseTime={sunRise}
-          sunsetTime={sunSet}
-          sunsetEpoch={sunsetEpoch}
-        />
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="text-center text-gray-600 py-12">
+          <p className="text-xl">Please enter a city to view weather data</p>
+        </div>
       </div>
-      <div className="relative">
-        <div className="absolute  mb-3 translate-y-[800px]  -translate-x-4 flex items-center justify-center  lg:h-full  lg:left-[60vh] lg:w-[600px] lg:top-52 lg:translate-y-0">
-          <TemperatureCurveChart weatherData={weatherData} />
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Current Weather Card */}
+      <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
+        <h2 className="text-2xl font-bold mb-4">Current Weather</h2>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <p className="text-5xl font-bold">{Math.round(currentTemp)}°C</p>
+            <p className="text-lg">Feels like {Math.round(feelsLike)}°C</p>
+          </div>
+          <div className="text-4xl">
+            {conditions.toLowerCase().includes('rain') ? <FaCloudRain /> : 
+             conditions.toLowerCase().includes('cloud') ? <FaCloudRain /> : 
+             <WiDaySunny />}
+          </div>
+        </div>
+        <p className="text-xl mb-2">{conditions}</p>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="flex items-center">
+            <WiHumidity className="text-2xl mr-2" />
+            <span>Humidity: {humidity}%</span>
+          </div>
+          <div className="flex items-center">
+            <WiStrongWind className="text-2xl mr-2" />
+            <span>Wind: {windSpeed} km/h</span>
+          </div>
+          <div className="flex items-center">
+            <WiBarometer className="text-2xl mr-2" />
+            <span>Pressure: {pressure} mb</span>
+          </div>
+          <div className="flex items-center">
+            <TbUvIndex className="text-2xl mr-2" />
+            <span>UV Index: {uvIndex}</span>
+          </div>
         </div>
       </div>
 
-      <div className="absolute top-[350px] lg:-translate-y-16 lg:-translate-x-32 3xl:translate-y-0 3xl:translate-x-0">
-        <div className="absolute top-[550px] mt-16 lg:mt-7 lg:top-16 lg:m-5 lg:translate-x-32 3xl:translate-x-0 ">
-        <h1 className="text-2xl font-bold ">Daily Forcast</h1>
-        </div>
-        <WeatherDaysForcast weatherData={weatherData}/>
-      </div>
-      {/* <div className="absolute top-[2100px]">all copy Right</div> */}
-    </>
+      {/* Sunrise/Sunset Card */}
+      <SunriseSunset
+        sunriseTime={sunRise}
+        sunsetTime={sunSet}
+        sunsetEpoch={sunsetEpoch}
+      />
+
+      {/* Temperature Chart */}
+      <TemperatureCurveChart weatherData={weatherData} />
+
+      {/* Daily Forecast */}
+      <WeatherDaysForcast weatherData={weatherData} />
+    </div>
   );
 }

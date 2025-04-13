@@ -12,45 +12,48 @@ import fog from "../../../public/fog.jpg"
 import clearNight from "../../../public/clear-night.jpg"
 
 interface ShowDisplayDataProps {
-  weatherData: WeatherData | undefined ;
- 
+  weatherData: WeatherData | undefined;
 }
 
+export default function WeatherImage({ weatherData }: ShowDisplayDataProps) {
+  const weatherSource = weatherData?.currentConditions?.icon;
+  const conditions = weatherData?.currentConditions?.conditions || "Unknown";
 
-export default function WeatherImage({ weatherData }:ShowDisplayDataProps) {
-    const weatherSource=weatherData?.currentConditions?.icon;
-
-    let imageSource;
-  if(weatherSource==='rain'){
-    imageSource=rany
-  }else if(weatherSource==='cloudy'){
-    imageSource=cloud
-  }else if(weatherSource==='snow'){
-    imageSource=snow
-  }else if(weatherSource==='partly-cloudy-day'){
-    imageSource=PartyCloudeDay
-  }else if(weatherSource==='partly-cloudy-night'){
-    imageSource=PartyCloudeNight
-  }else if(weatherSource==='clear-day'){
-    imageSource=sunny
-  }else if(weatherSource==='clear-night'){
-    imageSource=clearNight
-  }else if(weatherSource==='wind'){
-    imageSource=wind
-  }else if(weatherSource==='fog'){
-    imageSource=fog
-  }else if(weatherSource==='partly-cloudy-night'){
-    imageSource=PartyCloudeNight
-  }else{
-    imageSource=Error
+  let imageSource;
+  if (weatherSource === 'rain') {
+    imageSource = rany;
+  } else if (weatherSource === 'cloudy') {
+    imageSource = cloud;
+  } else if (weatherSource === 'snow') {
+    imageSource = snow;
+  } else if (weatherSource === 'partly-cloudy-day') {
+    imageSource = PartyCloudeDay;
+  } else if (weatherSource === 'partly-cloudy-night') {
+    imageSource = PartyCloudeNight;
+  } else if (weatherSource === 'clear-day') {
+    imageSource = sunny;
+  } else if (weatherSource === 'clear-night') {
+    imageSource = clearNight;
+  } else if (weatherSource === 'wind') {
+    imageSource = wind;
+  } else if (weatherSource === 'fog') {
+    imageSource = fog;
+  } else {
+    imageSource = Error;
   }
     
   return (
-    <>
-    <div className="absolute w-[150px] top-40 mt-2 lg:top-1/4">
-      <Image className="rounded-lg " src={imageSource} alt="weather" />
-      <p className="flex justify-center mt-2">{weatherData?.currentConditions?.conditions}</p>
+    <div className="relative w-full h-full">
+      <div className="absolute inset-0 rounded-full overflow-hidden shadow-lg">
+        <Image 
+          src={imageSource} 
+          alt={conditions} 
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-full"></div>
     </div>
-    </>
   );
 }

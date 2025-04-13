@@ -26,12 +26,18 @@ export interface WeatherData {
     tempmin?:number;
     datetime:string;
     icon: string;
+    hours?: Array<{
+      datetime: string;
+      temp?: number;
+      conditions?: string;
+      icon: string;
+    }>;
   }>;
 }
 
 export interface WeatherResponse {
   data?: WeatherData;
-  error?: string
+  error?: string|null
 }
 
 

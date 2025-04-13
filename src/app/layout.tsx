@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "./provider";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,21 +50,14 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Providers>{children}</Providers>
-        <footer className="bg-gray-800 text-white p-4 text-center translate-y-[2600px] lg:translate-y-0">
-          <p>
-            © 2025 Weather Forecast. Using Visual Crossing API
-            source code{" In "}
-            <a
-              href="https://github.com/mrejo11/weather-webApp"
-              className="text-blue-400 hover:underline text-xl ml-2"
-            >
-              <i className="fab fa-github"></i>
-            </a>
-          </p>
-        </footer>
+        <Providers>
+          <main className="flex-grow">
+            {children}
+          </main>
+        </Providers>
+        <Footer />
       </body>
     </html>
   );
