@@ -22,13 +22,8 @@ export default function RightSideApp({ weatherData }: ShowDisplayDataRight) {
   const windSpeed = weatherData?.currentConditions?.windspeed ?? 0;
   const pressure = weatherData?.currentConditions?.pressure ?? 0;
   const uvIndex = weatherData?.currentConditions?.uvindex ?? 0;
-  const cloudCover = weatherData?.currentConditions?.cloudcover ?? 0;
   const conditions = weatherData?.currentConditions?.conditions ?? "";
   
-  // Calculate rain chance
-  const dewPoint = weatherData?.currentConditions?.dew ?? 20;
-
-
   if(!weatherData){
     return (
       <div className="bg-white rounded-xl shadow-lg p-6">

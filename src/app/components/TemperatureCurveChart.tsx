@@ -1,6 +1,7 @@
 "use client";
 import { WeatherData } from "@/types";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label, Area, AreaChart, Legend, TooltipProps } from "recharts";
+import { Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart, Legend } from "recharts";
+import { TooltipProps } from "recharts/types/component/Tooltip";
 import { useState } from "react";
 
 interface ShowDisplayDataRight {
