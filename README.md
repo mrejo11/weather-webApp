@@ -1,9 +1,18 @@
  # 🌦️ Weather App
 
-<p align="center">
-  <img src="./public/desktop.png" width="600" alt="Weather App Preview"/>
- <img src="./public/mobile.png" width="600" alt="Weather App Preview"/>
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="./public/desktop.png" width="250px" alt="Desktop View"/><br/>
+      <strong>Desktop View</strong>
+    </td>
+    <td align="center">
+      <img src="./public/mobile.png" width="250px" alt="Mobile View"/><br/>
+      <strong>Mobile View</strong>
+    </td>
+  </tr>
+</table>
+
 این اپلیکیشن با استفاده از Next.js توسعه یافته و به کاربران امکان می‌دهد شهر موردنظر خود را وارد کرده و اطلاعات آب‌وهوایی مربوط به آن را مشاهده کنند. از جمله ویژگی‌های این اپلیکیشن می‌توان به نمایش نمودار پیش‌بینی ۱۵ روزه و مشاهده جزئیات آب‌وهوای ۹ روز آینده به‌صورت مجزا اشاره کرد.
 
 ## 🛠️ تکنولوژی‌ها  
