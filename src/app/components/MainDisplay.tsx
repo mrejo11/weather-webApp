@@ -21,9 +21,9 @@ export default function MainDisplay() {
   const weatherData = formState?.data;
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (formData: FormData) => {
+  const handleSubmit =  (formData: FormData) => {
     setIsLoading(true);
-    await action(formData);
+   action(formData);
     setIsLoading(false);
   };
   
