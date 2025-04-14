@@ -51,9 +51,10 @@ This application is developed using Next.js and allows users to enter their desi
 - **Tailwind CSS** for lightweight and fast design  
 - **Visual Crossing API** for fetching weather data  
 
-## 🚀 Features  ![Screenshot 2025-04-14 094458](https://github.com/user-attachments/assets/126d1dce-8bf5-4d24-82df-887332e6494c)
+  ![Screenshot 2025-04-14 094458](https://github.com/user-attachments/assets/126d1dce-8bf5-4d24-82df-887332e6494c)
 ![Screenshot 2025-04-14 094436](https://github.com/user-attachments/assets/e3ff3296-08c8-46de-8bcf-c0be77443ae2)
 
+## 🚀 Features
 ✅ Displays current temperature, humidity, and wind speed  
 ✅ City search functionality with API  
 ✅ 15-day forecast chart  
